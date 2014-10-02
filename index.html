@@ -1,0 +1,110 @@
+	<!DOCTYPE html>
+	<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title> SPLIT RENT </title>
+	</head>
+	<body>
+
+	<h1>Roommate Room Splitter</h1>
+
+	<form id="myForm" method="post">
+		Roommates: <input type="text" name="roommates" id="roommates"> <br/>
+		Rent: <input type="text" name="rent" id="rent"> <br/>
+			<!--<button type='button' onclick="displayRoom()">Calculate</button>-->
+	</form>
+
+
+	<h2>Room 1</h2>
+	<form id="roomOne" method="post" >
+		Room, Big or small? <input type="text" name="room1" id="room1"> <br/>
+		Windows, yes or now? <input type="text" name="window1" id="window1"> <br/>
+
+	</form>
+
+	<h2>Room 2</h2>
+	<form id="roomTwo" method="post" >
+		Room, Big or small? <input type="text" name="room2" id="room2"> <br/>
+		Windows, yes or now? <input type="text" name="window2" id="window2"> <br/>
+
+	</form>
+	<br/>
+	<br/>
+	<button type='button' onclick="splitRent()">Calculate</button>
+<br/>
+	<br/>
+	<div id="result"></div>
+
+	<script>
+
+		function displayRoom() {
+
+
+			var roommates = (document.getElementById("roommates").value);
+			var rent = (document.getElementById("rent").value);
+//			var rentEach = rent / roommates;
+
+			if (roommates == 2) {
+
+				if (window1 == "yes" && window2 == "no"){
+
+				} else{
+
+				document.getElementById("result").innerHTML = document.getElementById('room1').style.visibility = 'visible';
+				}
+
+			} else {
+				document.getElementById('room1').style.visibility = 'hidden';
+			}
+
+
+		}
+
+
+
+		function splitRent() {
+
+			var roommates = (document.getElementById("roommates").value);
+			var rent = (document.getElementById("rent").value);
+
+			var room1 = (document.getElementById("room1").value);
+			var room2 = (document.getElementById("room2").value);
+
+			var window1 = (document.getElementById("window1").value);
+			var window2 = (document.getElementById("window2").value);
+
+			var rentEachEven = rent / roommates;
+
+			var roomBig = (0.6 * rent);
+			var roomSmall = (0.4 * rent);
+
+			var windowYes =  rentEachEven + 55;
+			var windowNo = rentEachEven - 50;
+
+			if (room1 == room2){
+
+				if ((window1 == "yes" && window2 == "no") || window1 == "no" && window2 == "yes"){
+
+					document.getElementById("result").innerHTML = ("The room with the window should pay:" + " " + "$" + windowYes.toFixed(2) +  "<br/> " + "The room without the window should pay:" + " " + "$" + windowNo.toFixed(2));
+
+				}else {
+
+					document.getElementById("result").innerHTML = ("You each should pay" + " " + "$" + rentEachEven.toFixed(2));
+
+				}
+
+			} else if ( room1 == "big" && room2 == "small" || room1 == "small" && room2 == "big") {
+
+				document.getElementById("result").innerHTML = ("The bigger room should pay:" + " " + "$" + roomBig.toFixed(2) +  "<br/> " + "The smaller room should pay:" + " " + "$" + roomSmall.toFixed(2));
+
+			} else{
+
+			document.alert("hello?");
+			}
+
+
+		}
+
+	</script>
+	</body>
+	</html>
