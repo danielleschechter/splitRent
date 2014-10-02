@@ -3,6 +3,30 @@
 	<head lang="en">
 		<meta charset="UTF-8">
 		<title> SPLIT RENT </title>
+
+		<style>
+
+			#formRoom1{
+				display:none;
+			}
+
+			#formRoom2{
+				display:none;
+			}
+
+			#formRoom3{
+				display:none;
+			}
+
+			#formRoom4{
+				display:none;
+			}
+
+			#formRoom5{
+				display:none;
+			}
+
+		</style>
 	</head>
 	<body>
 
@@ -14,20 +38,65 @@
 			<!--<button type='button' onclick="displayRoom()">Calculate</button>-->
 	</form>
 
+	<h2>How many rooms are there?</h2>
+	<select id="rooms" name="form_select">
+		<option value="">-- Select an Option --</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
 
-	<h2>Room 1</h2>
-	<form id="roomOne" method="post" >
-		Room, Big or small? <input type="text" name="room1" id="room1"> <br/>
-		Windows, yes or now? <input type="text" name="window1" id="window1"> <br/>
 
-	</form>
 
-	<h2>Room 2</h2>
-	<form id="roomTwo" method="post" >
-		Room, Big or small? <input type="text" name="room2" id="room2"> <br/>
-		Windows, yes or now? <input type="text" name="window2" id="window2"> <br/>
+	<div id="formRoom1">
+		<h2>Room 1</h2>
+		<form id="roomOne" method="post" >
+			Room, Big or small? <input type="text" name="room1" id="room1"> <br/>
+			Windows, yes or now? <input type="text" name="window1" id="window1"> <br/>
+		</form>
+	</div>
 
-	</form>
+	<div id="formRoom2">
+		<h2>Room 2</h2>
+		<form id="roomTwo" method="post" >
+			Room, Big or small? <input type="text" name="room2" id="room2"> <br/>
+			Windows, yes or now? <input type="text" name="window2" id="window2"> <br/>
+		</form>
+	</div>
+
+	<div id="formRoom3">
+		<h2>Room 3</h2>
+		<form id="roomThree" method="post" >
+			Room, Big or small? <input type="text" name="room3" id="room3"> <br/>
+			Windows, yes or now? <input type="text" name="window3" id="window3"> <br/>
+		</form>
+	</div>
+
+	<div id="formRoom4">
+		<h2>Room 4</h2>
+		<form id="roomFour" method="post" >
+			Room, Big or small? <input type="text" name="room4" id="room4"> <br/>
+			Windows, yes or now? <input type="text" name="window4" id="window4"> <br/>
+		</form>
+	</div>
+
+	<div id="formRoom5">
+		<h2>Room 5</h2>
+		<form id="roomFive" method="post" >
+			Room, Big or small? <input type="text" name="room5" id="room5"> <br/>
+			Windows, yes or now? <input type="text" name="window5" id="window5"> <br/>
+		</form>
+	</div>
+
+
+
+
+
+
+
+
 	<br/>
 	<br/>
 	<button type='button' onclick="splitRent()">Calculate</button>
@@ -37,28 +106,53 @@
 
 	<script>
 
-		function displayRoom() {
 
 
-			var roommates = (document.getElementById("roommates").value);
-			var rent = (document.getElementById("rent").value);
-//			var rentEach = rent / roommates;
+				document.getElementById('rooms').addEventListener('change', function () {
+				document.getElementById('formRoom1').style.display = 'none';
+				document.getElementById('formRoom2').style.display = 'none';
+				document.getElementById('formRoom3').style.display = 'none';
+				document.getElementById('formRoom4').style.display = 'none';
+				document.getElementById('formRoom5').style.display = 'none';
 
-			if (roommates == 2) {
+				switch (this.value) {
+					case "1":
+						document.getElementById('formRoom1').style.display = 'block';
+						break;
 
-				if (window1 == "yes" && window2 == "no"){
+					case "2":
+						document.getElementById('formRoom1').style.display = 'block';
+						document.getElementById('formRoom2').style.display = 'block';
 
-				} else{
+						break;
 
-				document.getElementById("result").innerHTML = document.getElementById('room1').style.visibility = 'visible';
+					case "3":
+						document.getElementById('formRoom1').style.display = 'block';
+						document.getElementById('formRoom2').style.display = 'block';
+						document.getElementById('formRoom3').style.display = 'block';
+
+
+						break;
+					case "4":
+						document.getElementById('formRoom1').style.display = 'block';
+						document.getElementById('formRoom2').style.display = 'block';
+						document.getElementById('formRoom3').style.display = 'block';
+						document.getElementById('formRoom4').style.display = 'block';
+
+						break;
+					case "5":
+						document.getElementById('formRoom1').style.display = 'block';
+						document.getElementById('formRoom2').style.display = 'block';
+						document.getElementById('formRoom3').style.display = 'block';
+						document.getElementById('formRoom4').style.display = 'block';
+						document.getElementById('formRoom5').style.display = 'block';
+
+						break;
 				}
-
-			} else {
-				document.getElementById('room1').style.visibility = 'hidden';
-			}
+			});
 
 
-		}
+
 
 
 
